@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('area', AreaController::class);
-
-Route::get('area/list', [AreaController::class, 'index'])->name('area.index');
-Route::get('area/show/{id}',[AreaController::class,'show'])->name('area.show');
-
-Route::get('computer/list', [ComputerController::class, 'index'])->name('computer.index');
-Route::get('computer/show/{id}',[ComputerController::class,'show'])->name('computer.show');
+Route::resource('areas', AreaController::class);
+Route::resource('computers', ComputerController::class);
+Route::resource('training_centers', TrainingCenterController::class);
