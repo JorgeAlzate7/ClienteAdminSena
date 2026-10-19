@@ -1,0 +1,384 @@
+/* =========================================
+   FOOTER PRINCIPAL
+========================================= */
+
+.sena-footer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.sena-footer .footer-container {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 55px 50px 45px;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+
+    gap: 60px;
+}
+
+
+/* =========================================
+   COLUMNAS
+========================================= */
+
+.sena-footer .footer-column {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+.sena-footer .footer-column h3 {
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 12px;
+
+    position: relative;
+}
+
+
+/* LÍNEA VERDE */
+
+.sena-footer .footer-column h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 35px;
+
+    height: 3px;
+
+    background-color: #39A900;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.sena-footer .footer-logo {
+    width: 90px;
+
+    height: 90px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+
+.sena-footer .footer-logo img {
+    max-width: 70px;
+
+    max-height: 70px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+.sena-footer .footer-brand p {
+    max-width: 280px;
+
+    color: #000000;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   ENLACES
+========================================= */
+
+.sena-footer .footer-column > a {
+    color: #050505;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+
+    transition: 0.2s;
+}
+
+
+/* HOVER */
+
+.sena-footer .footer-column > a:hover {
+    color: #39A900;
+
+    padding-left: 5px;
+}
+
+
+/* =========================================
+   CONTACTO
+========================================= */
+
+.sena-footer .footer-contact p {
+    color: #050505;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+
+/* ICONOS */
+
+.sena-footer .footer-contact i {
+    color: #39A900;
+
+    font-size: 17px;
+
+    min-width: 18px;
+}
+
+
+/* =========================================
+   PARTE INFERIOR
+========================================= */
+
+.sena-footer .footer-bottom {
+    border-top: 1px solid #333;
+
+    background-color: #0b0b0b;
+}
+
+
+.sena-footer .footer-bottom-content {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 20px 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+/* COPYRIGHT */
+
+.sena-footer .footer-bottom p {
+    margin: 0;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   REDES SOCIALES
+========================================= */
+
+.sena-footer .footer-social {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.sena-footer .footer-social a {
+    width: 35px;
+
+    height: 35px;
+
+    border: 1px solid #444;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+
+/* HOVER REDES */
+
+.sena-footer .footer-social a:hover {
+    background-color: #39A900;
+
+    border-color: #39A900;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   BOTÓN VOLVER ARRIBA
+========================================= */
+
+.btn-volver-arriba {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 48px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: white;
+
+    color: #222;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition: 0.3s;
+
+    z-index: 9999;
+}
+
+
+/* HOVER */
+
+.btn-volver-arriba:hover {
+    background-color: #39A900;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* BOTÓN VISIBLE */
+
+.btn-volver-arriba.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .sena-footer .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px;
+    }
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .sena-footer .footer-container {
+        grid-template-columns: 1fr;
+
+        padding: 40px 25px;
+
+        gap: 35px;
+    }
+
+
+    .sena-footer .footer-bottom-content {
+        padding: 20px 25px;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+
+    .btn-volver-arriba {
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+}
