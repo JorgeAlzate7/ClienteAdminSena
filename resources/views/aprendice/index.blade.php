@@ -49,15 +49,15 @@
                     <tr>
 
                         <td>
-                            {{ $aprendice->name }}
+                            {{ $aprendice['name'] ?? 'N/A' }}
                         </td>
 
                         <td>
-                            {{ $aprendice->email }}
+                            {{ $aprendice['email'] ?? 'N/A' }}
                         </td>
 
                         <td>
-                            {{ $aprendice->cell_number }}
+                            {{ $aprendice['cell_number'] ?? 'N/A' }}
                         </td>
 
                         <td>
@@ -65,7 +65,7 @@
                             <div class="aprendice-actions">
 
                                 <a
-                                    href="{{ route('aprendice.show', $aprendice->id) }}"
+                                    href="{{ route('aprendice.show', $aprendice['id']) }}"
                                     class="aprendice-btn"
                                 >
                                     <i class="bi bi-eye"></i>
@@ -73,7 +73,7 @@
                                 </a>
 
                                 <a
-                                    href="{{ route('aprendice.edit', $aprendice->id) }}"
+                                    href="{{ route('aprendice.edit', $aprendice['id']) }}"
                                     class="aprendice-btn"
                                 >
                                     <i class="bi bi-pencil"></i>
@@ -81,7 +81,7 @@
                                 </a>
 
                                 <form
-                                    action="{{ route('aprendice.destroy', $aprendice->id) }}"
+                                    action="{{ route('aprendice.destroy', $aprendice['id']) }}"
                                     method="POST"
                                 >
 
