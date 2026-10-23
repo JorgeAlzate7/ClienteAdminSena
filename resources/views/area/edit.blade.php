@@ -23,7 +23,7 @@
         </p>
 
         <form
-            action="{{ route('area.update', $area->id) }}"
+            action="{{ route('area.update', $area['id']) }}"
             method="POST"
         >
 
@@ -40,7 +40,7 @@
                     type="text"
                     name="name"
                     id="name"
-                    value="{{ old('name', $area->name) }}"
+                    value="{{ old('name', $area['name'] ?? '') }}"
                     placeholder="Ejemplo: Tecnología"
                     required
                 >

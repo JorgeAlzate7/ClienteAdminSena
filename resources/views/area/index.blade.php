@@ -38,12 +38,12 @@
 
             <tbody>
 
-                @foreach ($areas as $area)
+                @forelse ($areas as $area)
 
                     <tr>
 
                         <td>
-                            {{ $area->name }}
+                            {{ $area['name'] ?? 'N/A' }}
                         </td>
 
                         <td>
@@ -51,7 +51,7 @@
                             <div class="areas-actions">
 
                                 <a
-                                    href="{{ route('area.show', $area->id) }}"
+                                    href="{{ route('area.show', $area['id']) }}"
                                     class="area-action"
                                 >
                                     <i class="bi bi-eye"></i>
@@ -59,7 +59,7 @@
                                 </a>
 
                                 <a
-                                    href="{{ route('area.edit', $area->id) }}"
+                                    href="{{ route('area.edit', $area['id']) }}"
                                     class="area-action"
                                 >
                                     <i class="bi bi-pencil"></i>
@@ -67,7 +67,7 @@
                                 </a>
 
                                 <form
-                                    action="{{ route('area.destroy', $area->id) }}"
+                                    action="{{ route('area.destroy', $area['id']) }}"
                                     method="POST"
                                 >
 
@@ -91,7 +91,15 @@
 
                     </tr>
 
-                @endforeach
+                @empty
+
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            No hay áreas registradas.
+                        </td>
+                    </tr>
+
+                @endforelse
 
             </tbody>
 
