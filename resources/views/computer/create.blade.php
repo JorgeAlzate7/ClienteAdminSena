@@ -40,6 +40,7 @@
         <form
             action="{{ route('computer.store') }}"
             method="POST"
+            enctype="multipart/form-data"
         >
 
             @csrf
@@ -51,13 +52,17 @@
                 </label>
 
                 <input
-                    type="number"
+                    type="text"
                     name="number"
                     id="number"
                     placeholder="Ejemplo: 001"
                     value="{{ old('number') }}"
                     required
                 >
+
+                @error('number')
+                    <small class="error" style="color: red;">{{ $message }}</small>
+                @enderror
 
             </div>
 
@@ -76,6 +81,31 @@
                     value="{{ old('brand') }}"
                     required
                 >
+
+                @error('brand')
+                    <small class="error" style="color: red;">{{ $message }}</small>
+                @enderror
+
+            </div>
+
+
+            <div class="computer-form-group">
+
+                <label for="imagen">
+                    Imagen / Foto del computador
+                </label>
+
+                <input
+                    type="file"
+                    name="imagen"
+                    id="imagen"
+                    accept="image/*"
+                    required
+                >
+
+                @error('imagen')
+                    <small class="error" style="color: red;">{{ $message }}</small>
+                @enderror
 
             </div>
 

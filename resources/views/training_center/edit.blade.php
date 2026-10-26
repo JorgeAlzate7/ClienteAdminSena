@@ -13,17 +13,13 @@
         <div class="centro-form-header">
 
             <div>
-
                 <span>FORMACIÓN SENA</span>
-
                 <h1>
                     Editar <strong>centro.</strong>
                 </h1>
-
                 <p>
                     Actualiza la información del centro de formación.
                 </p>
-
             </div>
 
             <a
@@ -36,15 +32,13 @@
 
         </div>
 
-
         <form
-            action="{{ route('training_center.update', $training_center->id) }}"
+            action="{{ route('training_center.update', $training_center['id']) }}"
             method="POST"
         >
 
             @csrf
             @method('PUT')
-
 
             <div class="centro-form-group">
 
@@ -56,12 +50,12 @@
                     type="text"
                     name="name"
                     id="name"
-                    value="{{ old('name', $training_center->name) }}"
+                    value="{{ old('name', $training_center['name'] ?? '') }}"
+                    placeholder="Nombre del centro"
                     required
                 >
 
             </div>
-
 
             <div class="centro-form-group">
 
@@ -73,12 +67,12 @@
                     type="text"
                     name="location"
                     id="location"
-                    value="{{ old('location', $training_center->location) }}"
+                    value="{{ old('location', $training_center['location'] ?? '') }}"
+                    placeholder="Ubicación del centro"
                     required
                 >
 
             </div>
-
 
             <div class="centro-form-actions">
 
@@ -94,7 +88,7 @@
                     class="centros-button"
                 >
                     <i class="bi bi-check-lg"></i>
-                    Actualizar
+                    Actualizar centro
                 </button>
 
             </div>

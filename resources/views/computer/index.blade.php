@@ -11,7 +11,6 @@
     <div class="computadores-header">
 
         <div>
-
             <h1>
                 Computadores
             </h1>
@@ -19,7 +18,6 @@
             <p>
                 Administración de computadores registrados en el sistema.
             </p>
-
         </div>
 
         <a
@@ -38,27 +36,38 @@
         <table>
 
             <thead>
-
                 <tr>
                     <th>NÚMERO</th>
+                    <th>IMAGEN</th>
                     <th>MARCA</th>
                     <th>ACCIONES</th>
                 </tr>
-
             </thead>
 
             <tbody>
 
-                @forelse ($computers as $computer)
+                @forelse ($computers ?? [] as $computer)
 
                     <tr>
 
                         <td>
-                            {{ $computer->number }}
+                            {{ $computer['number'] ?? $loop->iteration }}
                         </td>
 
                         <td>
-                            {{ $computer->brand }}
+                            @if (!empty($computer['imagen_url']))
+                                <img 
+                                    src="{{ $computer['imagen_url'] }}" 
+                                    alt="Imagen Computador" 
+                                    style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px;"
+                                >
+                            @else
+                                <span style="color: #888; font-size: 0.85rem;">Sin foto</span>
+                            @endif
+                        </td>
+
+                        <td>
+                            {{ $computer['brand'] ?? $computer['marca'] ?? 'N/A' }}
                         </td>
 
                         <td>
@@ -66,7 +75,7 @@
                             <div class="computadores-actions">
 
                                 <a
-                                    href="{{ route('computer.show', $computer->id) }}"
+                                    href="{{ route('computer.show', $computer['id']) }}"
                                     class="computer-action"
                                 >
                                     <i class="bi bi-eye"></i>
@@ -74,7 +83,7 @@
                                 </a>
 
                                 <a
-                                    href="{{ route('computer.edit', $computer->id) }}"
+                                    href="{{ route('computer.edit', $computer['id']) }}"
                                     class="computer-action"
                                 >
                                     <i class="bi bi-pencil"></i>
@@ -82,7 +91,7 @@
                                 </a>
 
                                 <form
-                                    action="{{ route('computer.destroy', $computer->id) }}"
+                                    action="{{ route('computer.destroy', $computer['id']) }}"
                                     method="POST"
                                 >
 
@@ -109,11 +118,9 @@
                 @empty
 
                     <tr>
-
-                        <td colspan="3" class="computadores-empty">
+                        <td colspan="4" class="computadores-empty">
                             No hay computadores registrados.
                         </td>
-
                     </tr>
 
                 @endforelse

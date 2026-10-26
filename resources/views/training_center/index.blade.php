@@ -14,31 +14,33 @@
             <h1>Centros de formación</h1>
 
             <p>
-                Administración de los centros de formación registrados.
+                Administración de centros de formación registrados.
             </p>
         </div>
 
-        <a
-            href="{{ route('training_center.create') }}"
-            class="centros-button"
-        >
+        <a href="{{ route('training_center.create') }}" class="centros-button">
             <i class="bi bi-plus-circle"></i>
             Nuevo centro
         </a>
 
     </div>
 
-
     <div class="centros-table-card">
 
         <table>
 
             <thead>
+
                 <tr>
+
                     <th>NOMBRE</th>
+
                     <th>UBICACIÓN</th>
+
                     <th>ACCIONES</th>
+
                 </tr>
+
             </thead>
 
             <tbody>
@@ -48,11 +50,11 @@
                     <tr>
 
                         <td>
-                            {{ $training_center->name }}
+                            {{ $training_center['name'] ?? 'N/A' }}
                         </td>
 
                         <td>
-                            {{ $training_center->location }}
+                            {{ $training_center['location'] ?? 'N/A' }}
                         </td>
 
                         <td>
@@ -60,7 +62,7 @@
                             <div class="centros-actions">
 
                                 <a
-                                    href="{{ route('training_center.show', $training_center->id) }}"
+                                    href="{{ route('training_center.show', $training_center['id']) }}"
                                     class="centro-action"
                                 >
                                     <i class="bi bi-eye"></i>
@@ -68,7 +70,7 @@
                                 </a>
 
                                 <a
-                                    href="{{ route('training_center.edit', $training_center->id) }}"
+                                    href="{{ route('training_center.edit', $training_center['id']) }}"
                                     class="centro-action"
                                 >
                                     <i class="bi bi-pencil"></i>
@@ -76,7 +78,7 @@
                                 </a>
 
                                 <form
-                                    action="{{ route('training_center.destroy', $training_center->id) }}"
+                                    action="{{ route('training_center.destroy', $training_center['id']) }}"
                                     method="POST"
                                 >
 
@@ -86,7 +88,7 @@
                                     <button
                                         type="submit"
                                         class="centro-action"
-                                        onclick="return confirm('¿Está seguro de eliminar este centro de formación?')"
+                                        onclick="return confirm('¿Está seguro de eliminar este centro?')"
                                     >
                                         <i class="bi bi-trash"></i>
                                         Eliminar
@@ -103,7 +105,7 @@
                 @empty
 
                     <tr>
-                        <td colspan="3" class="centros-empty">
+                        <td colspan="3" style="text-align: center;">
                             No hay centros de formación registrados.
                         </td>
                     </tr>

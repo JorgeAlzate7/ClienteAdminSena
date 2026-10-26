@@ -37,7 +37,11 @@ class TrainingCenterController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        Http::post($url . '/training_center/store', $request->all());
+        // Se reemplaza $request->all() por $request->except('_token')
+        Http::post(
+            $url . '/training_center/store', 
+            $request->except('_token')
+        );
 
         return redirect()->route('training_center.index');
     }
@@ -68,7 +72,11 @@ class TrainingCenterController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        Http::put($url . '/training_center/' . $id, $request->all());
+        // Se reemplaza $request->all() por $request->except(['_token', '_method'])
+        Http::put(
+            $url . '/training_center/' . $id, 
+            $request->except(['_token', '_method'])
+        );
 
         return redirect()->route('training_center.index');
     }

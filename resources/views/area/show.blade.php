@@ -44,7 +44,7 @@
                 </span>
 
                 <strong>
-                    #{{ $area->id }}
+                    #{{ $area['id']}}
                 </strong>
 
             </div>
@@ -57,7 +57,7 @@
                 </span>
 
                 <strong>
-                    {{ $area->name }}
+                    {{ $area['name']}}
                 </strong>
 
             </div>

@@ -8,21 +8,17 @@
 
 <div class="centros-page">
 
-    <div class="centro-detail-card">
+    <div class="centro-card">
 
-        <div class="centro-detail-header">
+        <div class="centro-header">
 
             <div>
 
-                <span>INFORMACIÓN DEL CENTRO</span>
+                <span>FORMACIÓN SENA</span>
 
                 <h1>
                     Detalle del <strong>centro.</strong>
                 </h1>
-
-                <p>
-                    Consulta la información registrada de este centro.
-                </p>
 
             </div>
 
@@ -36,7 +32,6 @@
 
         </div>
 
-
         <div class="centro-detail-grid">
 
             <div class="centro-detail-item">
@@ -44,40 +39,37 @@
                 <span>ID</span>
 
                 <strong>
-                    #{{ $centro->id }}
+                    #{{ $training_center['id'] ?? '' }}
                 </strong>
 
             </div>
-
 
             <div class="centro-detail-item">
 
                 <span>NOMBRE</span>
 
                 <strong>
-                    {{ $centro->name }}
+                    {{ $training_center['name'] ?? '' }}
                 </strong>
 
             </div>
-
 
             <div class="centro-detail-item">
 
                 <span>UBICACIÓN</span>
 
                 <strong>
-                    {{ $centro->location }}
+                    {{ $training_center['location'] ?? '' }}
                 </strong>
 
             </div>
 
         </div>
 
-
-        <div class="centro-detail-actions">
+        <div class="centro-actions">
 
             <a
-                href="{{ route('training_center.edit', $centro->id) }}"
+                href="{{ route('training_center.edit', $training_center['id'] ?? '') }}"
                 class="centros-button"
             >
                 <i class="bi bi-pencil"></i>
@@ -88,7 +80,7 @@
                 href="{{ route('training_center.index') }}"
                 class="centro-cancel"
             >
-                Regresar
+                Regresar a la lista
             </a>
 
         </div>
